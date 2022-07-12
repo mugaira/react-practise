@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>React</title>
+</head>
+
+<body>
+ <div id="root"></div>
+ <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+ <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+ <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ <!-- Your custom script here -->
+ <script type="text/babel">
+
+  // const root = document.getElementById("root");
+  // const h1 = document.createElement('h1');
+
+  // h1.innerText = 'Hello World'
+
+  // root.append(h1);
+
+  // const h1 = React.createElement(
+  //  'h1',
+  //  { id: 'header', className: "header" },
+  //  'Hello World'
+  // )
+
+  // 
+
+  // const MyReact = {
+  //  createElement(elName, options, child) {
+  //   const el = document.createElement(elName);
+  //   for (let opt in options) {
+  //    el[opt] = options[opt];
+  //   }
+  //   el.innerText = child;
+  //   return el;
+  //  },
+  // };
+  // const MyReactDOM = {
+  //  render(el, parent) {
+  //   parent.append(el);
+  //  },
+  // };
+
+
+  // const title = React.createElement(
+  //  'h1',
+  //  {
+  //   id: 'title',
+  //   children: 'Hello World'
+  //  }
+  // )
+
+  // ReactDOM.render(title, document.getElementById('root'));
+
+  // const secondTitle = React.createElement(
+  //  'h3',
+  //  'null',
+  //  'other title'
+  // )
+
+  // ReactDOM.render(secondTitle,document.getElementById('root'));
+
+
+  // const div = React.createElement('div', null, title);
+
+  // const div = React.createElement('div', { children: [title, secondTitle] });
+
+  // const div =  React.createElement('div',null,title,secondTitle)
+
+  // ReactDOM.render(div, document.getElementById('root'));
+
+
+  // const title = MyReact.createElement(
+  //  'h1',
+  //  {
+  //   id: 'title',
+  //   children: 'Hello World'
+  //  }
+  // )
+
+  // MyReactDOM.render(title, document.getElementById('root'));
+
+  // const title = MyReact.createElement(
+  //  'h1',
+  //  { id: 'helloworld', className: 'some-class' },
+  //  'Hello World'
+  // );
+
+  // ReactDOM.render(div, document.querySelector('#root'));
+  // MyReactDOM.render(title, document.querySelector('#root'));
+
+  // ReactDOM.render(MyReactDOM, document.getElementById('root'));
+
+  // const title = React.createElement(
+  //  'h1',
+  //  { id: 'helloworld', className: 'some-class' },
+  //  'Hello World'
+  // );
+
+
+  // const title = <h1 id='helloworld'>Hello World</h1>;
+
+  // const content = React.createElement(
+  //  'div',
+  //  null,
+  //  React.createElement('h1',null,'Hello World')
+  // );
+
+  //  ReactDOM.render(content,document.getElementById('root'));
+
+
+  // const content2 = (
+  //  <div>
+  //   <h1>Hello World</h1>
+  //  </div>
+  // );
+  // ReactDOM.render(content2,document.getElementById('root'));
+
+  // const children = "Hello World, Ok"
+  // const className = "some-class"
+
+  // const pros = {children,className};
+
+  // const title = <h1 {...pros} className="subtitle"></h1>
+
+  // ReactDOM.render(title,document.getElementById('root'));
+
+  // const title = <h1 className = {className}>{children.toLocaleUpperCase()}</h1>
+
+  // ReactDOM.render(title,document.getElementById('root'));
+
+
+  // const content = (
+  //  <div>
+  //   {
+  //    BlogPost({
+  //     title: 'React title',
+  //     date: '19th June 2022',
+  //     author: 'John Doe',
+  //     children: 'Some body content',
+  //     url: '#',
+  //    })
+  //   }
+  //   {
+  //    React.createElement(BlogPost, {
+  //     title: 'React title',
+  //     date: '19th June 2022',
+  //     author: 'John Doe',
+  //     children: 'Some body content',
+  //     url: '#',
+  //    })
+  //   }
+  //   <BlogPost
+  //    title='React JSX title'
+  //    date={new Date().toDateString()}
+  //    author='Jane Doe'
+  //    url='#'
+  //   >
+  //    Some body content
+  //   </BlogPost>
+  //  </div>
+  // );
+
+  // function BlogPost(props) {
+  //  return (
+  //   <article>
+  //    <h3>{props.title}</h3>
+  //    <p>{props.date}</p>
+  //    <p>{props.author}
+  //     <a href={props.url}>read more...</a>
+  //    </p>
+  //   </article>
+  //  )
+  // }
+
+  // ReactDOM.render(content,document.getElementById('root'));
+
+  function BlogPost({ title, date, author, children, url, highlight }) {
+
+   return (
+    <article style={{background  : highlight ? "yellow":"white"}}>
+     <h3>{title}</h3>
+     <p>
+      Published on {date} by {author}
+     </p>
+     <p>{children}</p>
+     <a href={url}>Read more</a>
+    </article>
+   )
+  }
+
+  const content = (
+   <div>
+    <BlogPost
+     title='React JSX title'
+     date={new Date().toDateString()}
+     author='Jane Doe'
+     url='#'
+     highlight
+    >
+     Some body content
+    </BlogPost>
+    <BlogPost
+     title='React JSX title'
+     date={new Date().toDateString()}
+     author='Jane Doe'
+     url='#'
+    >
+     Some body content
+    </BlogPost>
+   </div>
+  );
+ 
+  ReactDOM.render(content,document.querySelector("#root"));
+
+ </script>
+</body>
+
+</html>
